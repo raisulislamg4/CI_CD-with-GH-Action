@@ -41,7 +41,7 @@ runs:
   - name: Build Image 
     shell: bash
     id: build
-    if: steps.login.outputs.result == "success"
+    if: steps.login.outputs.result == 'success'
     run: |
       if docker build -t ${{inputs.dockerhub-username}}/${{inputs.image-name}}:${{inputs.image-tag}} .; then
         echo "Build Successfull"
