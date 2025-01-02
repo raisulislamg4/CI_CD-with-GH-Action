@@ -21,7 +21,7 @@ jobs:
         dockerhub-username: ${{ vars.DOCKERHUB_USERNAME }}
         dockerhub-token: ${{ secrets.DOCKERHUB_SECRET }}
         image-name: "gh-action"
-        image-tag: ${{ github.even.inputs.image_tag }}
+        image-tag: ${{ github.event.inputs.image_tag }}
 
     - name: Print Result
       run: |
