@@ -3,7 +3,7 @@ name: Build Image and Push to DockerHub
 on:
   workflow_dispatch:
     inputs:
-      image-tag:
+      image_tag:
         description: "Enter Image Tag"
         required: true
 
@@ -21,7 +21,7 @@ jobs:
         dockerhub-username: ${{ vars.DOCKERHUB_USERNAME }}
         dockerhub-token: ${{ secrets.DOCKERHUB_SECRET }}
         image-name: "gh-action"
-        image-tag: ${{ github.even.inputs.image-tag }}
+        image-tag: ${{ github.even.inputs.image_tag }}
 
     - name: Print Result
       run: |
