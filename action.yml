@@ -68,11 +68,11 @@ runs:
     shell: bash
     id: final-result
     run: |
-      if [ ${{steps.login.outputs.result}} != "success" ]; then
+      if [ "${{steps.login.outputs.result}}" != "success" ]; then
         echo "result=failure(login failed)" >> $GITHUB_OUTPUT
-      elif [ ${{steps.build.outputs.result}} != "success" ]; then
+      elif [ "${{steps.build.outputs.result}}" != "success" ]; then
         echo "result=failure(build failed)" >> $GITHUB_OUTPUT
-      elif [ ${{steps.push.outputs.result}} != "success" ]; then
+      elif [ "${{steps.push.outputs.result}}" != "success" ]; then
         echo "result=failure(push failed)" >> $GITHUB_OUTPUT
       else
         echo "result=success" >> $GITHUB_OUTPUT
