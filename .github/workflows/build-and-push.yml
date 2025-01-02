@@ -1,0 +1,19 @@
+name: Build Image and Push to DockerHub
+
+on:
+  workflow-dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout to Action
+      uses: actions/checkout@v4
+
+    - name: Call Composite Action
+      uses: ./
+      with:
+        dockerhub-username: ${{ vars.DOCKERHUB_USERNAME }}
+        dockerhub-token: ${{ secrets.DOCKERHUB_SECRET }}
+        image-name: "gh-action"
+        image-tag: "v1"
